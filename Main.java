@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,6 +23,7 @@ import java.io.*;
 
 public class Main{
 	public static void main(String[] args){
+		//-----------------------ARRAYLIST------------
 		// ArrayList<Integer> list = new ArrayList<>();
 		// list.add(25);
 		// list.add(4);
@@ -41,6 +43,7 @@ public class Main{
 		// 	System.out.println("the element does not exist");
 		// }
 
+		//----------------MAPS-----------------------------
 		// Map<String, Integer> ages = new HashMap<>();
 		// ages.put("Sam", 39);
 		// ages.put("Bob", 27);
@@ -82,40 +85,46 @@ public class Main{
 		// 	average += element.getValue();
 		// }
 		// System.out.println("average is: " + average/ages.size());
-
-	// 	int[] nums = {4, 7 , 9, 1};
-	// 	int calcul = 5 + 1;
 		
-	// 	try{
-	// 		System.out.println(nums[4]);
-	// 		calcul /= 0;
-	// 	}catch(ArrayIndexOutOfBoundsException| ArithmeticException e){
-	// 		// 
-	// 		System.out.println("Error");
-	// 	}finally{
-	// 		System.out.println("la vie est belle");
-	// 	}
+		//--------------EXCEPTIONS---------------------------------
+		// 	int[] nums = {4, 7 , 9, 1};
+		// 	int calcul = 5 + 1;
+			
+		// 	try{
+		// 		System.out.println(nums[4]);
+		// 		calcul /= 0;
+		// 	}catch(ArrayIndexOutOfBoundsException| ArithmeticException e){
+		// 		// 
+		// 		System.out.println("Error");
+		// 	}finally{
+		// 		System.out.println("la vie est belle");
+		// 	}
 
-	// 	double balance = 50;
-	// 	double price = 200;
-	// 	try {
-	// 		buy(balance, price);
-	// 	} catch (NoMoneyException e) {
-	// 		e.printStackTrace();
-	// 	}
+		// 	double balance = 50;
+		// 	double price = 200;
+		// 	try {
+		// 		buy(balance, price);
+		// 	} catch (NoMoneyException e) {
+		// 		e.printStackTrace();
+		// 	}
 
-	// }
-	
-	// 	private static void buy(double balance, double price)  throws NoMoneyException{
-	// 		double b = balance - price;
-	// 		if(b < 0){
-	// 			throw new NoMoneyException();
-	// 		}
-	// 		System.out.println(b);
-	// 	}
+		// }
+		
+		// 	private static void buy(double balance, double price)  throws NoMoneyException{
+		// 		double b = balance - price;
+		// 		if(b < 0){
+		// 			throw new NoMoneyException();
+		// 		}
+		// 		System.out.println(b);
+		// 	}
 
-// 	Timer chrono = new Timer();
-// 	chrono.schedule(new CustomTimer(), 1000, 1000);
+
+		//--------------------CHRONOMETER-----------------
+		// 	Timer chrono = new Timer();
+		// 	chrono.schedule(new CustomTimer(), 1000, 1000);
+
+		//------------------------FILES-------------------
+
 		// File file = new File("/mnt/nfs/homes/masamoil/sgoinfre/Java/index.html");
 		// File folder = new File("/mnt/nfs/homes/masamoil/sgoinfre/Java/folder");
 		// if(!folder.exists()){
@@ -166,20 +175,54 @@ public class Main{
 		// } catch (IOException e) {
 		// 	e.printStackTrace();
 		// }
-		// source.delete();
-
-
-		//Callbacks
-	//
+		// source.delete(); 
 	
-	// 
-	
-	Account<Character> myAccount = new Account<Character>("Sam", 100, '$');
-	myAccount.showBalance();
+		//------------------TEMPLATES---------------------
+		// Account<Character> myAccount = new Account<Character>("Sam", 100, '$');
+		// myAccount.showBalance();
 
-	Account<String> otherAccount = new Account<String>("Bob", 10, "dollars");
-	otherAccount.showBalance();
+		// Account<String> otherAccount = new Account<String>("Bob", 1000, "dollars");
+		// otherAccount.showBalance();
+		
+		// Bank bank = new Bank("SG");
+		// bank.transfert(myAccount, otherAccount, 125);
+		// bank.transfert(otherAccount, myAccount, 125);
+		// myAccount.showBalance();
+		// otherAccount.showBalance();
+
+		//---------------INTREFACES COMPARATORS-------------------------
+		// List<Toy> toys = new ArrayList<>();
+		// toys.add(new Toy("Zebre", 15, "animal", 5));
+		// toys.add(new Toy("Spiderman", 20, "superhero", 3));
+		// toys.add(new Toy("Yoda", 15, "jedi", 2));
+		// toys.add(new Toy("Darth Vader", 15, "jedi", 0));
+
+		// for(Toy toy: toys){
+		// 	System.out.println(toy.getName() + "-" + toy.getPrice() + "$ " + toy.getDescr() + " " + " promo: " + toy.getPromo());
+		// }
+
+		// Collections.sort(toys, new PriceComparator());
+
+
+		// System.out.println("-----------------------------------------------");
+		// for(Toy toy: toys){
+		// 	System.out.println(toy.getName() + "-" + toy.getPrice() + "$ " + toy.getDescr() + " " + " promo: " + toy.getPromo());
+		// }
+
+		// User user2 =  new User("Dupont", "Lea", null, null);
+		User user2 = new User.UserBuilder()
+				.withLastName("Dupont")
+				.withFirstName("Lea").build();
+
+		// User user3 = new User(null, "Nicolas", "5214", null);
+		User user3 = new User.UserBuilder()
+			.withFirstName("Nicolas")
+			.withPhone("5214").build();
+
+		System.out.println(user2.getFirstName() + " " + user2.getLastName() );
 	}
+
+    
 
 
 }

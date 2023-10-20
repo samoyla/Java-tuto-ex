@@ -21,11 +21,11 @@ public class Account<T> {
 		return currency;
 	}
 
-	public void addMoney(){
+	public void addMoney(double amount){
 		this.amount += amount;
 	}
 
-	public void removeMoney(){
+	public void removeMoney(double amount){
 		this.amount -= amount;
 	}
 
